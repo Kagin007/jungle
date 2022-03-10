@@ -3,7 +3,17 @@
   <header class="page-header">
     <h1>Order #<%= @order.id %></h1>
   </header>
+  <% @order.line_items.each do |item| %>
+    <div class="col-sm-4">
+      <%= image_tag item.product.image.tiny, class: 'main-img' %>
+    </div>
+    <%= item.product.image %>
+    <%= item.product.name %>
+    <%= item.product.description %>
 
+    <% end %>
+  <%= humanized_money_with_symbol @order.total_cents / 100 %>
+  <%= @order.email %>
   <div class="order-summary jumbotron">
     <h4>Thank you for your order!</h4>
   </div>
