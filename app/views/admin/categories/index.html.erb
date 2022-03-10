@@ -1,0 +1,9 @@
+<h1> ADMIN categories </h1>
+
+<div class="well">
+<%= link_to '+ New Category', [:new, :admin, :category], class: 'btn btn-info' %>
+</div>
+
+<% @categories.each {|category| %>
+<h3> <%=  category.name  %> <h3>
+<% } %>
